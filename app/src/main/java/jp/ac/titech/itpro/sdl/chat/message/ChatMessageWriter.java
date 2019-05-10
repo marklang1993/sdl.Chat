@@ -40,18 +40,28 @@ public class ChatMessageWriter implements Closeable {
         writer.beginObject();
         writer.name(ChatMessage.FIELD_SEQ).value(message.seq);
         writer.name(ChatMessage.FIELD_TIME).value(message.time);
+
         writer.name(ChatMessage.FIELD_CONTENT);
         if (message.content == null) {
             writer.nullValue();
         } else {
             writer.value(message.content);
         }
+
         writer.name(ChatMessage.FIELD_SENDER);
         if (message.sender == null) {
             writer.nullValue();
         } else {
             writer.value(message.sender);
         }
+
+        writer.name(ChatMessage.FIELD_SOUND);
+        if (message.sender == null) {
+            writer.nullValue();
+        } else {
+            writer.value(message.sound);
+        }
+
         writer.endObject();
     }
 }
